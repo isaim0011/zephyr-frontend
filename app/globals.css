@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/*
+ * Theme tokens. Text/background pairs meet WCAG 2.1 AA (≥ 4.5:1) in both
+ * themes. The theme follows the OS, and the toggle sets data-theme on <html>.
+ */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f7fa;
+  --fg: #111827;
+  --muted: #4b5563; /* 7.6:1 on white */
+  --line: #d1d5db;
+  --accent: #1d4ed8; /* 6.7:1 on white */
+  --accent-fg: #ffffff;
+  --ok: #166534;
+  --warn: #92400e;
+  --err: #b91c1c;
+  --focus: #1d4ed8;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1120;
+    --surface: #111a2e;
+    --fg: #f3f4f6;
+    --muted: #a8b3c7; /* 8.3:1 on --bg */
+    --line: #334155;
+    --accent: #93b4ff; /* 8.9:1 on --bg */
+    --accent-fg: #0b1120;
+    --ok: #86efac;
+    --warn: #fcd34d;
+    --err: #fca5a5;
+    --focus: #93b4ff;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1120;
+  --surface: #111a2e;
+  --fg: #f3f4f6;
+  --muted: #a8b3c7;
+  --line: #334155;
+  --accent: #93b4ff;
+  --accent-fg: #0b1120;
+  --ok: #86efac;
+  --warn: #fcd34d;
+  --err: #fca5a5;
+  --focus: #93b4ff;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-err: var(--err);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Always-visible keyboard focus. */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Component classes, declared as utilities so they can compose with @apply (Tailwind v4). */
+@utility btn {
+  @apply inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-accent text-accent-fg hover:opacity-90;
+}
+@utility btn-secondary {
+  @apply btn border border-line bg-surface text-fg hover:border-accent;
+}
+@utility input {
+  @apply block min-h-11 w-full rounded-lg border border-line bg-bg px-3 py-2 text-base text-fg placeholder:text-muted aria-[invalid=true]:border-err;
+}
+@utility card {
+  @apply rounded-xl border border-line bg-surface p-4;
+}
+@utility label {
+  @apply mb-1 block font-semibold;
+}
+@utility hint {
+  @apply mt-1 text-sm text-muted;
+}
+@utility field-error {
+  @apply mt-1 text-sm font-medium text-err;
+}
