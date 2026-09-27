@@ -1,0 +1,64 @@
+{
+  "name": "zephyr-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zephyr frontend: SEP-24 interactive pages and a reference Stellar wallet for the USD <-> USDC ramp",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "api:types": "openapi-typescript ../zephyr-backend/openapi.yaml -o lib/api/schema.d.ts",
+    "bindings:update": "bash scripts/update-bindings.sh"
+  },
+  "dependencies": {
+    "@creit.tech/stellar-wallets-kit": "^2.7.0",
+    "@stellar/stellar-sdk": "^17.1.0",
+    "@zephyr-ramp/escrow-client": "file:vendor/zephyr-ramp-escrow-client-0.1.0.tgz",
+    "buffer": "^6.0.3",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "^5.0.2",
+    "axe-core": "^4.13.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.6",
+    "jsdom": "^30.1.1",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^3.9.9",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.9.3",
+    "vitest": "^5.0.2"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true,
+    "bufferutil": false,
+    "secp256k1": false,
+    "utf-8-validate": false,
+    "@reown/appkit": false
+  }
+}

@@ -1,0 +1,9 @@
+.next
+out
+coverage
+vendor
+playwright-report
+test-results
+package-lock.json
+lib/api/schema.d.ts
+next-env.d.ts
