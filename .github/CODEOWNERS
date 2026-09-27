@@ -1,0 +1,5 @@
+*                        @zephyr-ramp/maintainers
+/lib/auth.ts             @zephyr-ramp/security-reviewers
+/lib/escrow.ts           @zephyr-ramp/security-reviewers
+/lib/wallet.ts           @zephyr-ramp/security-reviewers
+/lib/callback.ts         @zephyr-ramp/security-reviewers
