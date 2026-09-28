@@ -58,6 +58,15 @@ Points are awarded when your PR is merged and the issue is resolved **during an 
 - **Security:** never store the JWT (no localStorage, sessionStorage or cookies). Only sign what `lib/auth.ts` / `lib/escrow.ts` build. Never render HTML from the API.
 - **API types** come from the backend's OpenAPI spec. Don't hand-edit `lib/api/schema.d.ts`.
 
+## Maintainers
+
+| Maintainer | GitHub                               |
+| ---------- | ------------------------------------ |
+| N-thnI     | [@N-thnI](https://github.com/N-thnI) |
+| nixx       | [@N-i-xx](https://github.com/N-i-xx) |
+
+Maintainers assign issues, review PRs (see `.github/CODEOWNERS`) and handle security and conduct reports sent to [niheanyi404@gmail.com](mailto:niheanyi404@gmail.com).
+
 ## Security
 
 Never report vulnerabilities in public issues. See [SECURITY.md](SECURITY.md).
