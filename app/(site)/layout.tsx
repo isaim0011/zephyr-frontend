@@ -25,6 +25,17 @@ function Chrome({ children }: { children: ReactNode }) {
           <Link href="/" className="mr-auto text-lg font-bold">
             {t("app.name")}
           </Link>
+          <span
+            data-testid="network-badge"
+            aria-label={appConfig.network === "testnet" ? "Testnet" : "Mainnet"}
+            className={`rounded px-2 py-0.5 text-xs font-medium ${
+              appConfig.network === "testnet"
+                ? "bg-amber-100 text-amber-900 dark:bg-amber-900 dark:text-amber-100"
+                : "bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-amber-100"
+            }`}
+          >
+            {t(`app.networkBadge.${appConfig.network}`)}
+          </span>
           <Link href="/app" className="underline-offset-4 hover:underline">
             {t("app.nav.wallet")}
           </Link>
