@@ -9,7 +9,7 @@ export const en = {
     tagline: "Move dollars in and out of Stellar, fast and light.",
     skipToContent: "Skip to main content",
     testnetBanner: "Testnet only. Zephyr is unaudited: don't use real money.",
-    networkBadge: { testnet: "Testnet", mainnet: "Mainnet" },
+    networkBadge: { testnet: "Testnet", public: "Mainnet" },
     theme: { toggle: "Switch theme", light: "Light", dark: "Dark" },
     nav: { home: "Home", wallet: "Wallet", history: "History" },
   },
